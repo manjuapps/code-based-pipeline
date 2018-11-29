@@ -18,7 +18,7 @@ stages{
         stage('Build'){
             steps {
 				echo 'starting build step'
-                sh 'mvn clean package'
+                mvn clean package
 				echo 'mvn command executed'
             }
             post {
