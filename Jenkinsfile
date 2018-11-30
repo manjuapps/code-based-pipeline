@@ -10,10 +10,6 @@ pipeline {
          string(name: 'tomcat_prod', defaultValue: '127.0.0.1', description: 'Production Server')
     }
 
-    triggers {
-         pollSCM('* * * * *')
-     }
-
 stages{
         stage('Build'){
             steps {
@@ -33,7 +29,7 @@ stages{
             parallel{
                 stage ("Deploy to Production"){
                     steps {
-                         bat "pscp.exe -i /c/Users/msajja/Desktop/Udemy/Jenkins/tomcat-demo.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
+                         bat "pscp -i /c/Users/msajja/Desktop/Udemy/Jenkins/tomcat-demo.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
                     }
                 }
 								
