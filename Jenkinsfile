@@ -1,8 +1,5 @@
 pipeline {
     agent any
-	environment {
-	  pscp = "C:\Program Files\PuTTY\pscp.exe"
-	}
 
 	tools {
         maven 'localMaven'
