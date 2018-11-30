@@ -33,18 +33,18 @@ stages{
             parallel{
                 stage ("Deploy to Production"){
                     steps {
-                         bat "pscp -i /c/Users/msajja/Desktop/Udemy/Jenkins/tomcat-demo.pem **/target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
+                         bat "pscp.exe -i /c/Users/msajja/Desktop/Udemy/Jenkins/tomcat-demo.pem **/target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
                     }
                 }
 				stage ('Deploy to Staging'){
                     steps {
-                        bat "C:\\Program Files\\PuTTY\\pscp.exe -i /c/Users/msajja/Desktop/Udemy/Jenkins/tomcat-demo.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
+                        bat " "C:\\Program Files\\PuTTY\\pscp.exe" -i /c/Users/msajja/Desktop/Udemy/Jenkins/tomcat-demo.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
                     }
                 }
 				
 				stage ('Deployment testing'){
                     steps {
-                        bat "C:/Program Files/PuTTY/pscp.exe -i /c/Users/msajja/Desktop/Udemy/Jenkins/tomcat-demo.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
+                        bat " "C:/Program Files/PuTTY/pscp.exe" -i /c/Users/msajja/Desktop/Udemy/Jenkins/tomcat-demo.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
                     }
                 }
 
